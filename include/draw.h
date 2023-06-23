@@ -18,5 +18,7 @@ void drawRect(RGFW_window* win, unsigned int x, unsigned int y, unsigned int w, 
 }
 
 void clearScreen(RGFW_window* win) {
+    RGFW_swapBuffers(win);
+
     drawRect(win, 0, 0, win->w, win->h, (char[]){0, 0, 0});
 }
