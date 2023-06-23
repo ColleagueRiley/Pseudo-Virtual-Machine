@@ -16,4 +16,4 @@ jobs:
     - name: make
       run: make buildWindows
     - name: check build
-      run: RVM test.rop
+      run: RVM.exe test.rop
