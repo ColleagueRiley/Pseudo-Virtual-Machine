@@ -1,0 +1,66 @@
+EE042 // set the RAM address at '2' to 4 
+
+EE053 // set RAM address at '3' to 5 (this is paddle 1's Y)
+
+EE464 // set RAM address at '4' to 46 (this is ball's X)
+EE465 // set RAM address at '5' to 46 (this is ball's Y)
+
+EE006 // set RAM address at '6' to 1 (this is ball's volocity X )
+EE007 // set RAM address at '7' to 0 (this is ball's volocity Y )
+
+DF92 // dump the RAM address at '2' into V9
+
+A1604
+1F600 EE016 
+1F600 EE007
+
+1F601 EE-16 
+1F601 EE007
+
+1F602 EE016 
+1F612 EE017
+
+1F603 EE-16 
+1F603 EE-17
+
+1A904 // while the data at V9 == 4
+
+// draw paddle
+D40500 // move (5, 0) to (V4, V5)
+
+DF53 // dump the RAM address at '5' into V5 ( sets the paddle's Y to our var for the paddle's Y )
+
+D60903 // move (9, 3) to (V5, V6) (sets the paddle width/height)
+DES4 // draw rect using the data from V4 - V6
+
+// draw ball
+DF44 // dump the RAM address at '4' into V4 ( sets the paddle's X to our var for the paddle's X )
+DF55 // dump the RAM address at '5' into V5 ( sets the paddle's Y to our var for the paddle's Y )
+
+D60303 // move (3, 3) to (V6, V7) (sets the ball width/height)
+DES4 // draw rect using the data from V4 - V6
+
+
+// draw paddle 2
+D49500 // move (5, 0) to (V4, V5)
+
+DF55 // dump the RAM address at '3' into V5 ( sets the paddle's Y to our var for the paddle's Y [which is the same as the ball's Y] )
+
+D60903 // move (9, 3) to (V6, V7) (sets the paddle width/height)
+DES4 // draw rect using the data from V5 - V7
+
+1FF01 EA-13 // if the up key is pressed, add -1 to paddle 1's Y 
+1FF02 EA013 // if the down key is pressed, add 1 to paddle 1's Y 
+
+
+DFA6
+EFA4
+
+DFA7
+EFA5
+
+C000 // clear the screen
+
+0000 // end the while loop
+
+0000 // end the script
