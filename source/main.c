@@ -25,6 +25,8 @@ unsigned char registers[16]; /* V0 - VF */
 */
 
 int main (int argc, char** argv) {
+    si_init(SI_KILO(500));
+
     srand(time(NULL));
 
     if (argc == 1) {
@@ -329,4 +331,6 @@ int main (int argc, char** argv) {
     }
 
     RGFW_closeWindow(window);
+
+    si_terminate();
 }
