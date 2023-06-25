@@ -61,7 +61,7 @@ C000 // clear the screen
 1FF01 EA-13 // if the up key is pressed, add -1 to paddle 1's Y 
 1FF02 EA013 // if the down key is pressed, add 1 to paddle 1's Y 
 
-1FF05 A1604
+1FF05 A1604 // if the 'A' button is pressed (Z key) generate a new random number 
 
 1F600 EE016 // if V6 == 0, ball volocity X = 1
 1F600 EE007 // if V6 == 0, ball volocity y = 0
