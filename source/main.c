@@ -75,11 +75,12 @@ int main (int argc, char** argv) {
               numbers must be represented using two digits
               ex. 9 -> 09
         M -> memory address from 0 - 4096
-                number bust be represented using 4 digets
-                ex. 9 -> 0009
+                number bust be represented using unicode value
+                ex. 65 -> A
+                ex. 
 
-                * I'd reccomend that you do not try to access memory lower than
-                1500 as to not overwrite the script which is stored in memory
+                * memory lower than 1500 is locked for the RAM,
+                    this means 1500 is added to whatever RAM address you're trying to access
 
         *****opcodes****** 
         ==================
