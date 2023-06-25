@@ -1,4 +1,4 @@
-# Psudeo VM
+# Pseudo VM
 ![vm workflow linux](https://github.com/ColleagueRiley/psudeo-Virtual-Machine/actions/workflows/linux.yml/badge.svg)
 ![vm workflow windows](https://github.com/ColleagueRiley/psudeo-Virtual-Machine/actions/workflows/windows.yml/badge.svg)
 
