@@ -10,18 +10,19 @@ EE007 // set RAM address at '7' to 0 (this is ball's volocity Y )
 
 DF92 // dump the RAM address at '2' into V9
 
-A1604
-1F600 EE016 
-1F600 EE007
+A1604 // set V6 to be a random number from 0-4
 
-1F601 EE-16 
-1F601 EE007
+1F600 EE016 // if V6 == 0, ball volocity X = 1
+1F600 EE007 // if V6 == 0, ball volocity y = 0
 
-1F602 EE016 
-1F612 EE017
+1F601 EE-16 // if V6 == 1, ball volocity X = 01
+1F601 EE007 // if V6 == 1, ball volocity Y = 0
 
-1F603 EE-16 
-1F603 EE-17
+1F602 EE016 // if V6 == 2, ball volocity X = 1
+1F602 EE017 // if V6 == 2, ball volocity Y = 1
+
+1F603 EE-16 // if V6 == 3, ball volocity X = -1
+1F603 EE-17 // if V6 == 3, ball volocity Y = -1
 
 1A904 // while the data at V9 == 4
 
@@ -49,17 +50,30 @@ DF55 // dump the RAM address at '3' into V5 ( sets the paddle's Y to our var for
 D60903 // move (9, 3) to (V6, V7) (sets the paddle width/height)
 DES4 // draw rect using the data from V5 - V7
 
+DFA6 // load the RAM address at '6' [the ball's volocity x] into VA
+EFA4 // ADD VA to the RAM address at '4', the ball's x
+
+DFA7 // load the RAM address at '7' [the ball's volocity x] into VA
+EFA5 // ADD VA to RAM address at 5,  the ball's x
+
+C000 // clear the screen
+
 1FF01 EA-13 // if the up key is pressed, add -1 to paddle 1's Y 
 1FF02 EA013 // if the down key is pressed, add 1 to paddle 1's Y 
 
+1FF05 A1604
 
-DFA6
-EFA4
+1F600 EE016 // if V6 == 0, ball volocity X = 1
+1F600 EE007 // if V6 == 0, ball volocity y = 0
 
-DFA7
-EFA5
+1F601 EE-16 // if V6 == 1, ball volocity X = 01
+1F601 EE007 // if V6 == 1, ball volocity Y = 0
 
-C000 // clear the screen
+1F602 EE016 // if V6 == 2, ball volocity X = 1
+1F602 EE017 // if V6 == 2, ball volocity Y = 1
+
+1F603 EE-16 // if V6 == 3, ball volocity X = -1
+1F603 EE-17 // if V6 == 3, ball volocity Y = -1
 
 0000 // end the while loop
 
