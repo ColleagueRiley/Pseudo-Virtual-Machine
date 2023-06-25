@@ -2816,10 +2816,10 @@ i32 si_hex_digit_to_int(char c) {
 	if (si_char_is_digit(c)) {
 		return si_digit_to_int(c);
 	}
-	else if (c <= 'a' && c >= 'f') {
+	else if (si_between(c, 'a', 'f')) {
 		return c - 'a' + 10;
 	}
-	else if (c <= 'A' && c >= 'F') {
+	else if (si_between(c, 'A', 'F')) {
 		return c - 'A' + 10;
 	}
 
